@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vuetify": "^3.6.5"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

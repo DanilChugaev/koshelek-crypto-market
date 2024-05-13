@@ -1,9 +1,11 @@
 <script lang="ts" setup>
+import UiLogo from './components/ui/logo.vue'
 </script>
 
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <ui-logo />
+
     <br>
     <router-link :to="`${$basePath}/`">Order book</router-link>
 /
