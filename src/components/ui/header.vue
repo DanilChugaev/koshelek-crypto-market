@@ -14,7 +14,7 @@ const basePath = inject('basePath')
       <ui-logo />
     </router-link>
 
-    <ui-navigation class="ui-header__navigation"/>
+    <ui-navigation class="ui-header__navigation" />
   </ui-container>
 </template>
 

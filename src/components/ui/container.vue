@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { PropType } from "vue";
+import type { PropType } from 'vue'
 
 defineProps({
   tag: {
     type: String as PropType<keyof HTMLElementTagNameMap>,
     default: 'div',
-  }
+  },
 })
 </script>
 

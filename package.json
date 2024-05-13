@@ -1,12 +1,12 @@
 {
   "name": "koshelek-crypto-market",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint:fix": "eslint src/**/**.{ts,vue} --fix",
+    "lint:fix": "eslint . --fix",
     "prepare": "husky install",
     "test": "vitest --dom",
     "build-storybook": "storybook build"
@@ -17,6 +17,7 @@
     "vuetify": "^3.6.5"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.17.0",
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",

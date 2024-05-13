@@ -8,7 +8,7 @@ import UiContainer from './components/ui/container.vue'
   <ui-header />
 
   <ui-container tag="main">
-    <router-view></router-view>
+    <router-view />
   </ui-container>
 
   <ui-footer class="footer" />

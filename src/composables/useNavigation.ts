@@ -1,8 +1,8 @@
-import { ref, inject } from 'vue';
-import { PageRoute } from '~/types';
+import { inject, ref } from 'vue'
+import { PageRoute } from '~/types'
 
 export function useNavigation() {
-  const basePath = inject('basePath');
+  const basePath = inject('basePath')
 
   const navigation = ref([
     {
@@ -15,9 +15,9 @@ export function useNavigation() {
       label: 'Settings',
       to: `${basePath}${PageRoute.settings}`,
     },
-  ]);
+  ])
 
   return {
     navigation,
-  };
+  }
 }

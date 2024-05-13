@@ -1,23 +1,22 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const path = require('path');
+const path = require('node:path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    resolve:{
-        alias:{
-            '~' : path.resolve(__dirname, './src')
-        },
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, './src'),
     },
-    plugins: [
-        vue(),
-    ],
-    base: './',
-    // @ts-ignore
-    test: {
-        globals: true,
-        environment: 'happy-dom',
-    },
-});
+  },
+  plugins: [
+    vue(),
+  ],
+  base: './',
+
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+  },
+})

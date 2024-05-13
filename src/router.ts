@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
-const BASE_PATH = import.meta.env.VITE_BASE_PATH;
+const BASE_PATH = import.meta.env.VITE_BASE_PATH
 
 const routes = [
   {
@@ -12,11 +12,11 @@ const routes = [
     path: `${BASE_PATH}/settings`,
     component: () => import('./pages/settings.vue'),
   },
-];
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-export default router;
+export default router

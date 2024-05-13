@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import UiContainer from "./container.vue";
+import UiContainer from './container.vue'
 </script>
 
 <template>

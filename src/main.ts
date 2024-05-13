@@ -1,24 +1,25 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import Router from './router';
+import { createApp } from 'vue'
 
 // Vuetify
-import 'vuetify/styles';
-import { createVuetify } from 'vuetify';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
-const app = createApp(App);
+import App from './App.vue'
+import Router from './router'
+
+const app = createApp(App)
 
 const vuetify = createVuetify({
   ssr: true,
   components,
   directives,
-});
+})
 
-app.provide('basePath', import.meta.env.VITE_BASE_PATH);
+app.provide('basePath', import.meta.env.VITE_BASE_PATH)
 
 app
   .use(vuetify)
   .use(Router)
-  .mount('#app');
+  .mount('#app')
