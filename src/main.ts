@@ -16,7 +16,7 @@ const vuetify = createVuetify({
   directives,
 });
 
-app.config.globalProperties.$basePath = import.meta.env.VITE_BASE_PATH;
+app.provide('basePath', import.meta.env.VITE_BASE_PATH);
 
 app
   .use(vuetify)

@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import { inject } from 'vue'
 import UiLogo from './logo.vue'
 import UiContainer from './container.vue'
 import UiNavigation from './navigation.vue'
+import { PageRoute } from '~/types'
+
+const basePath = inject('basePath')
 </script>
 
 <template>
   <ui-container tag="header" class="ui-header">
-    <router-link :to="`${$basePath}/`">
+    <router-link :to="`${basePath}${PageRoute.orderBook}`">
       <ui-logo />
     </router-link>
 
