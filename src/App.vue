@@ -1,19 +1,23 @@
 <script lang="ts" setup>
-import UiLogo from './components/ui/logo.vue'
+import UiHeader from './components/ui/header.vue'
+import UiFooter from './components/ui/footer.vue'
+import UiContainer from './components/ui/container.vue'
 </script>
 
 <template>
-  <div>
-    <ui-logo />
+  <ui-header />
 
-    <br>
-    <router-link :to="`${$basePath}/`">Order book</router-link>
-/
-    <router-link :to="`${$basePath}/settings`">Settings</router-link>
+  <ui-container tag="main">
     <router-view></router-view>
-  </div>
+  </ui-container>
+
+  <ui-footer class="footer" />
 </template>
 
 <style lang="scss">
 @import "./assets/scss/index.scss";
+
+.footer {
+  margin-top: auto;
+}
 </style>

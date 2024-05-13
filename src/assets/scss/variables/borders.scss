@@ -1,0 +1,4 @@
+:root {
+  --border-color: rgba(var(--v-border-color), var(--v-border-opacity));
+  --border: 1px solid var(--border-color);
+}

@@ -1,8 +1,7 @@
 <template>
-  <v-avatar class="elevation-3">
-    <v-img
-      alt="Vue logo"
-      src="logo.png"
-    ></v-img>
-  </v-avatar>
+  <v-img
+    alt="Vue logo"
+    src="logo.png"
+    width="40"
+  />
 </template>
