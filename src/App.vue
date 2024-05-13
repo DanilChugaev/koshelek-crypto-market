@@ -7,17 +7,17 @@ import UiContainer from './components/ui/container.vue'
 <template>
   <ui-header />
 
-  <ui-container tag="main">
+  <ui-container tag="main" class="main">
     <router-view />
   </ui-container>
 
-  <ui-footer class="footer" />
+  <ui-footer />
 </template>
 
 <style lang="scss">
 @import "./assets/scss/index.scss";
 
-.footer {
-  margin-top: auto;
+.main {
+  flex: 1;
 }
 </style>
