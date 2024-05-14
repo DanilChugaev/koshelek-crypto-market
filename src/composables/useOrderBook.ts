@@ -77,14 +77,20 @@ export function useOrderBook() {
     // фильтровать по цене надо
   }
 
+  const closeOldWebSocketConnection = () => {
+    connection.value?.close()
+  }
+
   const connectToWebSocket = (selectedPair) => {
     connection.value = new WebSocket(getWebSocketUrl(selectedPair))
-    // закрывать старое соединение надо перед открытие нового
 
     /* eslint-disable no-console */
     connection.value.onopen = () => console.log('WebSocket connection established')
     connection.value.onclose = () => console.log('WebSocket connection closed')
-    connection.value.onerror = error => console.log(`WebSocket error: ${error}`)
+    connection.value.onerror = (error) => {
+      console.log(`WebSocket error: ${error}`)
+      closeOldWebSocketConnection()
+    }
     /* eslint-enable no-console */
 
     connection.value.onmessage = handleWebSocketMessage
@@ -92,6 +98,7 @@ export function useOrderBook() {
 
   const fetchData = async (selectedPair) => {
     clearOldData()
+    closeOldWebSocketConnection()
     await fetchInitialData(selectedPair)
     connectToWebSocket(selectedPair)
   }
