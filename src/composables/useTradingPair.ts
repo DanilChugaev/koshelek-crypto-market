@@ -10,7 +10,7 @@ export function useTradingPair() {
 
   const pairs = ref<TradingPair[]>(['BTCUSDT', 'BNBBTC', 'ETHBTC'])
 
-  const updateLog = ({ oldValue, newValue }) => {
+  const updateLog = ({ oldValue, newValue }: { oldValue: TradingPair, newValue: TradingPair }) => {
     const currentDateTime = useDateFormat(useNow(), 'DD.MM.YYYY HH:mm:ss')
 
     tradingPairSelectionLog.value.push({
@@ -20,9 +20,9 @@ export function useTradingPair() {
     })
   }
 
-  watch(selectedPair, (newValue, oldValue) => {
+  watch(selectedPair, async (newValue: TradingPair, oldValue: TradingPair) => {
     updateLog({ oldValue, newValue })
-    fetchData(newValue)
+    await fetchData(newValue)
   })
 
   return {

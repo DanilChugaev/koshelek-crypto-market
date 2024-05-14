@@ -1,10 +1,11 @@
 import { inject, ref } from 'vue'
+import type { INavigation } from '../types'
 import { PageRoute } from '../types'
 
 export function useNavigation() {
   const basePath = inject('basePath')
 
-  const navigation = ref([
+  const navigation = ref<INavigation[]>([
     {
       id: 'orderBook',
       label: 'Order book',
