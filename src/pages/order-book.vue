@@ -7,7 +7,6 @@ import UiTable from '../components/ui/table.vue'
 const {
   asks,
   bids,
-  // orderBook,
   listWithNumberOfTableItems,
   selectedNumberOfTableItems,
   fetchData,
@@ -47,7 +46,6 @@ onMounted(() => {
         :items="bids"
       />
     </div>
-    <!--    {{ orderBook }} -->
   </div>
 </template>
 

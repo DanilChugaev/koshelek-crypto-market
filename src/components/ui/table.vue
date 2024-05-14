@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
+import type { IOrderBook } from '../../types/orderBook'
 
 defineProps({
   items: {
-    type: Array as PropType<number[][]>,
+    type: Object as PropType<IOrderBook>,
     required: true,
   },
   textColor: {
@@ -45,21 +46,21 @@ defineProps({
 
     <tbody>
       <tr
-        v-for="item in items"
-        :key="item[0]"
+        v-for="item of items"
+        :key="item.price"
       >
         <td
           class="ui-table__cell" :class="[
             `ui-table__cell--${textColor}`,
           ]"
         >
-          {{ item[0] }}
+          {{ item.price }}
         </td>
         <td class="ui-table__cell ui-table__cell--hidden-on-mobile">
-          {{ item[1] }}
+          {{ item.quantity }}
         </td>
         <td class="ui-table__cell">
-          {{ item[0] * item[1] }}
+          {{ item.total }}
         </td>
       </tr>
     </tbody>
