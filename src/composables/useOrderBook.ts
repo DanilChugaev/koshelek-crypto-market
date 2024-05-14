@@ -68,13 +68,18 @@ export function useOrderBook() {
     }
   }
 
+  const sortBook = (book) => {
+    return Object.fromEntries(Object.entries(book.value).slice(0, selectedNumberOfTableItems.value - 1).sort((a, b) => Number(a[0]) - Number(b[0])))
+  }
+
   const handleWebSocketMessage = (event) => {
     orderBook.value = JSON.parse(event.data)
 
     orderBook.value.a.forEach(handleOrders.bind(null, asks))
     orderBook.value.b.forEach(handleOrders.bind(null, bids))
 
-    // фильтровать по цене надо
+    asks.value = sortBook(asks)
+    bids.value = sortBook(bids)
   }
 
   const closeOldWebSocketConnection = () => {
