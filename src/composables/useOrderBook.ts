@@ -69,8 +69,12 @@ export function useOrderBook() {
     }
   }
 
-  const sortBook = (book: Ref<IOrderBook>) => {
-    return Object.fromEntries(Object.entries(book.value).slice(0, selectedNumberOfTableItems.value - 1).sort((a, b) => Number(a[0]) - Number(b[0])))
+  const sortBook = (book: Ref<IOrderBook>, isReverse: boolean) => {
+    return Object.fromEntries(Object
+      .entries(book.value)
+      .slice(0, selectedNumberOfTableItems.value - 1)
+      .sort((a, b) => isReverse ? Number(b[0]) - Number(a[0]) : Number(a[0]) - Number(b[0])),
+    )
   }
 
   const handleWebSocketMessage = (event: MessageEvent) => {
@@ -80,7 +84,7 @@ export function useOrderBook() {
     orderBook.value.b.forEach(handleOrders.bind(null, bids))
 
     asks.value = sortBook(asks)
-    bids.value = sortBook(bids)
+    bids.value = sortBook(bids, true)
   }
 
   const closeOldWebSocketConnection = () => {
