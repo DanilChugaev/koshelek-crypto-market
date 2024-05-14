@@ -16,11 +16,11 @@ function getRestApiUrl({
 
 const getWebSocketUrl = (symbol: TradingPair) => `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@depth`
 
-const connection = ref(null)
+const connection = ref<WebSocket>(null)
 
-const orderBook = ref(null)
-const asks = ref({})
-const bids = ref({})
+const orderBook = ref<{ a: Order[], b: Order[] }>(null)
+const asks = ref<IOrderBook>({})
+const bids = ref<IOrderBook>({})
 
 export function useOrderBook() {
   const selectedNumberOfTableItems = useStorage<NumberOfTableItems>('selectedNumberOfTableItems', 100)
