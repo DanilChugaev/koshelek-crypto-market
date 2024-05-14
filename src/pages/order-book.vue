@@ -22,7 +22,9 @@ watch(selectedNumberOfTableItems, () => {
 
 <template>
   <div class="order-book">
-    <h1>Selected pair: {{ selectedPair }}</h1>
+    <h1 class="order-book__title">
+      Selected pair: {{ selectedPair }}
+    </h1>
 
     <v-combobox
       v-model="selectedNumberOfTableItems"
@@ -48,6 +50,12 @@ watch(selectedNumberOfTableItems, () => {
 <style scoped lang="scss">
 .order-book {
   width: 100%;
+
+  &__title {
+    @media (max-width: 599px) {
+      font-size: 24px;
+    }
+  }
 
   &__tables {
     display: flex;
