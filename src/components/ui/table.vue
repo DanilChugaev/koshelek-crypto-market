@@ -30,40 +30,48 @@ defineProps({
       </v-toolbar>
     </template>
 
-    <thead>
-      <tr>
-        <th class="ui-table__cell text-left">
-          Price
-        </th>
-        <th class="ui-table__cell ui-table__cell--hidden-on-mobile text-left">
-          Quantity
-        </th>
-        <th class="ui-table__cell text-left">
-          Total
-        </th>
-      </tr>
-    </thead>
+    <template v-if="!Object.keys(items).length">
+      <div class="ui-table__loading">
+        Loading data...
+      </div>
+    </template>
 
-    <tbody>
-      <tr
-        v-for="item of items"
-        :key="item.price"
-      >
-        <td
-          class="ui-table__cell" :class="[
-            `ui-table__cell--${textColor}`,
-          ]"
+    <template v-else>
+      <thead>
+        <tr>
+          <th class="ui-table__cell text-left">
+            Price
+          </th>
+          <th class="ui-table__cell ui-table__cell--hidden-on-mobile text-left">
+            Quantity
+          </th>
+          <th class="ui-table__cell text-left">
+            Total
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr
+          v-for="item of items"
+          :key="item.price"
         >
-          {{ item.price }}
-        </td>
-        <td class="ui-table__cell ui-table__cell--hidden-on-mobile">
-          {{ item.quantity }}
-        </td>
-        <td class="ui-table__cell">
-          {{ item.total }}
-        </td>
-      </tr>
-    </tbody>
+          <td
+            class="ui-table__cell" :class="[
+              `ui-table__cell--${textColor}`,
+            ]"
+          >
+            {{ item.price }}
+          </td>
+          <td class="ui-table__cell ui-table__cell--hidden-on-mobile">
+            {{ item.quantity }}
+          </td>
+          <td class="ui-table__cell">
+            {{ item.total }}
+          </td>
+        </tr>
+      </tbody>
+    </template>
   </v-table>
 </template>
 
@@ -86,6 +94,14 @@ defineProps({
         display: none;
       }
     }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
   }
 }
 </style>
