@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, watch } from 'vue'
+import { watch } from 'vue'
 import { useOrderBook } from '../composables/useOrderBook'
 import { useTradingPair } from '../composables/useTradingPair'
 import UiTable from '../components/ui/table.vue'
@@ -17,11 +17,7 @@ const {
 
 watch(selectedNumberOfTableItems, () => {
   fetchData(selectedPair.value)
-})
-
-onMounted(() => {
-  fetchData(selectedPair.value)
-})
+}, { immediate: true })
 </script>
 
 <template>
