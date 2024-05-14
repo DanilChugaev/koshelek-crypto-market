@@ -53,6 +53,7 @@ watch(selectedNumberOfTableItems, () => {
     display: flex;
     gap: var(--spacer-d);
     max-height: calc(100vh - 350px);
+    overflow-x: auto;
   }
 }
 </style>
