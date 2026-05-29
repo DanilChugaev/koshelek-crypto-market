@@ -5,6 +5,7 @@ const path = require('node:path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/koshelek-crypto-market',
   resolve: {
     alias: {
       '~': path.resolve(__dirname, './src'),
@@ -13,10 +14,4 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: './',
-
-  test: {
-    globals: true,
-    environment: 'happy-dom',
-  },
 })
